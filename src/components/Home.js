@@ -34,11 +34,13 @@ class Home extends Component {
                     />
                   </div>
                   <div className=" flex-1">
-                    <div className="card">
-                      <Typography
-                        heading3={heading3}
-                      />
-                      <WeatherApp />
+                    <div className="card translate">
+                      <div className="card-content">
+                        <Typography
+                          heading3={heading3}
+                        />
+                        <WeatherApp />
+                      </div>
                     </div>
                     <Footer />
                   </div>

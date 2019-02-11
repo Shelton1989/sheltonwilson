@@ -45,10 +45,10 @@ class Form extends Component {
                 </div>
                 <div className="row full-width">
                     <div className="input-field col m12 relative">
-                        <label for="message">Message<input className="materialize-textarea" type="text" name="message" id="message"/></label>
+                        <label for="message">Message<textarea className="materialize-textarea" type="text" name="message" id="message"/></label>
                     </div>
                 </div>
-                <button className="button">SUBMIT</button>
+                <button className="btn waves-effect red darken-1 waves-light">SUBMIT<i class="material-icons right">send</i></button>
             </form>
         )
     }

@@ -53,12 +53,14 @@ class About extends Component {
                     />
                   </div>
                   <div className=" flex-1">
-                    <div className="card">
-                      <TwitterTimelineEmbed
-                        sourceType="profile"
-                        screenName="sheltonwlsn"
-                        options={{height: 400,}}
-                      />
+                    <div className="card translate">
+                      <div className="card-content">
+                        <TwitterTimelineEmbed
+                          sourceType="profile"
+                          screenName="sheltonwlsn"
+                          options={{height: 400, width: 'auto',}}
+                        />
+                      </div>
                     </div>
                     <Footer />
                   </div>

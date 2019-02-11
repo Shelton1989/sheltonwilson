@@ -102,6 +102,7 @@ class WeatherApp extends Component {
 function Weather(props){ 
     return(
         <div>
+          <br/>
             {props.icon ? <div className="weather-icon"><img className="weather-image" src={props.icon} alt=""/></div>:<div></div>}
             <p>Today is {props.date}, {props.city} is a 
                 {(props.temperature <= 12)?<span> cold </span>:(props.temperature <= 18)?<span> cool </span>:(props.temperature <= 25)?<span> warm </span>:(props.temperature >= 26)?<span> hot </span>:<span></span>}
@@ -114,9 +115,9 @@ function Weather(props){
 function Weatherform(props){
     return(
         <div>
-            <form onSubmit={props.getWeather}>
-                <input className="input" name="city" type="text" placeholder="Check Another City"></input>
-                <button className="button" type="submit">SUBMIT</button>
+            <form className="col m12" onSubmit={props.getWeather}>
+                <input className="col m12" name="city" type="text" placeholder="Check Another City"></input>
+                <button className="waves-effect waves-light red darken-1 btn-small" type="submit"><i class="material-icons left">cloud</i>SUBMIT</button>
             </form>
         </div>
     )
