@@ -1,6 +1,53 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Navbar extends Component {
+    state = {
+        active: true,
+      }
+    setActive = this.setActive.bind(this);
+    setActive(event){
+        let x = event.target.innerHTML
+        let y = document.getElementsByClassName('navlink');
+        switch(x) {
+          case 'HOME':
+            for(let i = 0; i < y.length; i++){
+              y[i].classList.remove('active');
+            }
+            event.target.parentElement.classList.add('active');
+            break
+          case 'ABOUT':
+            for(let i = 0; i < y.length; i++){
+              y[i].classList.remove('active');
+            }
+            event.target.parentElement.classList.add('active');
+            break
+          case 'SKILLSET':
+            for(let i = 0; i < y.length; i++){
+              y[i].classList.remove('active');
+            }
+            event.target.parentElement.classList.add('active');
+            break
+          case 'CONTACT':
+            for(let i = 0; i < y.length; i++){
+              y[i].classList.remove('active');
+            }
+            event.target.parentElement.classList.add('active');
+            break
+          default:
+            break
+        }
+    }
+    render(){
+        return(
+            <NavMenu 
+                setActive={this.setActive}
+            />
+        )
+    }
+}
+
+class NavMenu extends Component {
     render(props){
         return(
             <div id="Navbar">
@@ -10,10 +57,10 @@ class Navbar extends Component {
                     </div>
                     <div className="nav-wrapper">
                         <ul>
-                            <li className="navlink active"><a onClick={this.props.setActive} href="#">HOME</a></li>
-                            <li className="navlink"><a onClick={this.props.setActive} href="#">ABOUT</a></li>
-                            <li className="navlink"><a onClick={this.props.setActive} href="#">SKILLSET</a></li>
-                            <li className="navlink"><a onClick={this.props.setActive} href="#">CONTACT</a></li>
+                            <li className="navlink active"><Link onClick={this.props.setActive} to="/">HOME</Link></li>
+                            <li className="navlink"><Link onClick={this.props.setActive} to="/about">ABOUT</Link></li>
+                            <li className="navlink"><Link onClick={this.props.setActive} to="/skillset">SKILLSET</Link></li>
+                            <li className="navlink"><Link onClick={this.props.setActive} to="/contact">CONTACT</Link></li>
                         </ul>
                     </div>
                 </div>

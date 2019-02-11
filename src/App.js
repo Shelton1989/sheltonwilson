@@ -1,55 +1,41 @@
 import React, { Component } from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import M from 'materialize-css';
+import * as emailjs from 'emailjs-com';
+
+// Styles
+import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 import './App.scss';
 
-/* Components */
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+// Components
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import Skillset from './components/Skillset';
+import Contact from './components/Contact';
+import Error from './components/Error';
 
 class App extends Component {
-  state = {
-    active: true,
-  }
-  setActive = this.setActive.bind(this);
-  setActive(event){
-    let x = event.target.innerHTML
-    let y = document.getElementsByClassName('navlink');
-    switch(x) {
-      case 'HOME':
-        for(let i = 0; i < y.length; i++){
-          y[i].classList.remove('active');
-        }
-        event.target.parentElement.classList.add('active');
-        break
-      case 'ABOUT':
-        for(let i = 0; i < y.length; i++){
-          y[i].classList.remove('active');
-        }
-        event.target.parentElement.classList.add('active');
-        break
-      case 'SKILLSET':
-        for(let i = 0; i < y.length; i++){
-          y[i].classList.remove('active');
-        }
-        event.target.parentElement.classList.add('active');
-        break
-      case 'CONTACT':
-        for(let i = 0; i < y.length; i++){
-          y[i].classList.remove('active');
-        }
-        event.target.parentElement.classList.add('active');
-        break
-      default:
-        break
-    }
+  componentDidMount(){
+    M.AutoInit();
+    emailjs.init("user_PHzhXFbNTsbtIPNO0QHxX");
   }
   render() {
     return (
         <div id="App" className="App">
-          <Navbar 
-            setActive={this.setActive}
-          />
-          <Footer />
+        <BrowserRouter>
+          <div>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+                <Route path="/About" component={About} />
+                <Route path="/Skillset" component={Skillset} />
+                <Route path="/Contact" component={Contact} />
+              <Route component={Error} />
+            </Switch>
+          </div>
+        </BrowserRouter>
         </div>
     );
   }
