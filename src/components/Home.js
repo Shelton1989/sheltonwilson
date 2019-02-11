@@ -13,7 +13,9 @@ const heading3 = `Today`
 const paragraph = `Welcome to my site. This is where I try out new technologies 
 and techniques which means this site will be ever changing. There will be long 
 periods where there is no change and periods where the site is completely down. 
-Currently, this site is running React 16 and styled with the SASS language.`
+Currently, this is a Single Page App/Site with routing so this page will never 
+refresh. It is running React 16 and styled with the SASS language and using 
+some Material components.`
 const paragraph2 = `Please click through the links in the Navbar to get more information.`
 
 // Home Page Component
